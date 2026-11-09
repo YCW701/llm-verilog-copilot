@@ -1,0 +1,4 @@
+# Verilog sources are byte-exact: trusted checkers are pinned by sha256
+# (src/verilog_copilot/benchmarks/local_fixtures.py) and RTL screen tests depend on
+# exact line endings. Never let Git convert their line endings (DECISIONS M1-D3).
+*.v -text
