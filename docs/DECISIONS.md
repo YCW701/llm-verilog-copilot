@@ -8,6 +8,8 @@ Baseline date: November 8, 2026. This record separates supplied requirements and
 > - Technical approval is **not** team adoption. The M1 implementation choices in section 6 remain **proposed** until the team records a decision; see the summary at the start of section 6.
 > - No LLM generation, benchmark run, or experiment has been performed. M2 has not started.
 
+> **Publication update (November 11, 2026):** the team now reports **three students**, academic year **2026–2027**, and explicitly authorizes publishing the preserved M1 implementation to `https://github.com/YCW701/llm-verilog-copilot` on `main`, followed by `m1-baseline` after verifying the branch push. Existing local commit `7b4fbbe` and the remote starter commit `097c7f1` are retained in the integrated history. This updates C01/C02's original staffing/publication constraints; it does not adopt the still-proposed M1-D1–D6 choices or authorize M2 implementation. Historical reviews and the earlier four-role M2 planning document remain unchanged; current proposed staffing is in TEAM_ROLES.
+
 For a consequential change, append/update an entry with ID, date, status, owner, context, alternatives, decision, rationale, consequences, and evidence. Preserve superseded decisions with a link to their replacement; do not silently rewrite history. Promote a proposal only after an explicit team decision or an authorized implementation choice with its rationale recorded.
 
 ## 1. Confirmed requirements and working boundaries

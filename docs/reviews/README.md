@@ -1,6 +1,6 @@
 # Code Review History
 
-Latest applicable M1 review: **[M1_REVIEW_R3.md](M1_REVIEW_R3.md)** — **APPROVED WITH NON-BLOCKING ISSUES** for the documented trusted-fixture scope. No blocking M1 issue remains at R3. Model-generated RTL execution stays gated; technical approval does not adopt proposed team decisions. M2 was not started by the review.
+Latest applicable M1 review: **[M1_REVIEW_R4.md](M1_REVIEW_R4.md)** — **APPROVED WITH NON-BLOCKING ISSUES** for publication of the preserved trusted-fixture baseline. R4 independently reran the suite on November 11, 2026 and retains R3's scoped approval and minor follow-ups. Model-generated RTL execution stays gated; technical approval does not adopt proposed team decisions. M2 was not started by the review.
 
 The permanent workflow is defined identically in root [AGENTS.md](../../AGENTS.md) and [CLAUDE.md](../../CLAUDE.md). This index provides navigation; it does not replace report evidence or team decision records.
 
@@ -13,8 +13,9 @@ Outstanding issues in each row describe that review's snapshot, not a retrospect
 | M1 | R1 (legacy filename) | 2026-11-08 | [M1_REVIEW.md](M1_REVIEW.md) | CHANGES REQUIRED (reported as not ready for approval) | M1-C1: forged checker pass; M1-C2: compiler signals classified as design failure; M1-C3: incomplete process cleanup. Important I1/I2 also required disposition. |
 | M1 | R2 | 2026-11-08 | [M1_REVIEW_R2.md](M1_REVIEW_R2.md) | **CHANGES REQUIRED** | M1-C1 remains unresolved: lone-CR comment bypass yields a false pass. M1-I1 remains unresolved in version-probe capture. C2/C3 are independently verified fixed. |
 | M1 | R3 | 2026-11-08 | [M1_REVIEW_R3.md](M1_REVIEW_R3.md) | **APPROVED WITH NON-BLOCKING ISSUES** | None for the qualified M1 scope. C1 and I1 fixes independently verified; C2/C3/I2 retained. Non-blocking follow-ups: M1-R3-N1 same-basename version-log collision; M1-R3-N2 verdict docstring clarification. |
+| M1 | R4 — publication verification | 2026-11-11 | [M1_REVIEW_R4.md](M1_REVIEW_R4.md) | **APPROVED WITH NON-BLOCKING ISSUES** | None for the preserved default-tool baseline. Source/tests unchanged; 287 passed with Icarus, 239 passed / 48 skips without it. Existing minor wrapper/docstring issues deferred; manifest revision limitation disclosed. Final push/tag verification is reported in the publication handoff. |
 
-`M1_REVIEW.md` is the original R1 report. Preserve its name and contents; do not rename, replace, or create a duplicate R1 solely to match the newer convention. The next M1 re-review should use the next unused round, normally `M1_REVIEW_R4.md`.
+`M1_REVIEW.md` is the original R1 report. Preserve its name and contents; do not rename, replace, or create a duplicate R1 solely to match the newer convention. The next M1 re-review should use the next unused round, normally `M1_REVIEW_R5.md`.
 
 ## Implementation handoffs
 

@@ -1,9 +1,9 @@
 # Project Specification
 
 Project: **An LLM Copilot for Verilog Design**  
-Rutgers ECE Capstone, Group 62 — four undergraduate ECE students  
+Rutgers ECE Capstone, Group 62 — three undergraduate ECE students, academic year 2026–2027<br>
 Faculty advisor: Professor Hang Liu  
-Planning baseline: November 8, 2026
+Planning baseline: November 8, 2026; current team information: November 11, 2026
 
 ## 1. Purpose and status
 
@@ -11,7 +11,7 @@ Build a reproducible system that turns natural-language hardware specifications 
 
 This is a planning baseline, not an implemented system or a statement of faculty requirements beyond the information supplied by the team. No advisor approval, course deadline, numerical performance target, API access, or GPU allocation is assumed.
 
-The workspace was empty at initial inspection. This task adds documentation only. All source directories and commands described as future work are proposals until implemented and verified.
+The workspace was empty at the original planning baseline. Current status on November 11, 2026: M1 implements the offline Icarus verification harness and is technically approved with non-blocking issues. The application source and fixtures are preserved from local baseline commit `7b4fbbe`; current verification evidence is in the review history. Natural-language generation, providers, repair, benchmarks, and synthesis remain future work. The existing M2 plan is documentation only and predates the current three-student staffing update.
 
 ## 2. Required capabilities
 
@@ -71,7 +71,7 @@ Report mapped cell area with the library's documented units and static timing de
 
 These rules apply equally to Codex, Claude Code, and human contributors.
 
-1. Work in the existing `Capstone` root. Preserve unrelated files and local changes. Do not create a nested project, GitHub repository, remote, or push as part of the current authorization.
+1. Work in the existing `Capstone` root. Preserve unrelated files and local changes; do not create a nested project. GitHub publication and Git metadata changes require explicit task authorization. On November 11, 2026 the team authorized integrating M1 into `YCW701/llm-verilog-copilot`, committing and pushing `main`, then creating/pushing `m1-baseline` after branch-push verification. This does not authorize later-milestone implementation.
 2. Codex initially owns architecture, planning, review, and testing; Claude Code initially owns implementation. Either may take another role when explicitly assigned. These development tools are distinct from the application's runtime LLM providers.
 3. Before editing, claim a milestone and its exact file paths in the ownership table in [ROADMAP.md](ROADMAP.md). One active editor per file, including shared models, configuration, documentation, and tests. Use sequential handoffs for overlapping work. Do not launch additional editing agents without an explicit assignment and disjoint ownership.
 4. Use small milestones with concrete acceptance evidence. Change shared interfaces through the architecture and decision record; avoid speculative frameworks, dependencies, or infrastructure.
@@ -91,7 +91,7 @@ The baseline is complete when a documented local CLI can generate, simulate, rep
 
 - [ARCHITECTURE.md](ARCHITECTURE.md): components, data contracts, dependencies, and artifacts.
 - [ROADMAP.md](ROADMAP.md): staged implementation and the first Claude Code task.
-- [TEAM_ROLES.md](TEAM_ROLES.md): four engineering responsibilities and reviews.
+- [TEAM_ROLES.md](TEAM_ROLES.md): three proposed student ownership roles covering the engineering responsibilities and independent reviews.
 - [DECISIONS.md](DECISIONS.md): confirmed decisions, proposals, and open questions.
 - Root [AGENTS.md](../AGENTS.md) and [CLAUDE.md](../CLAUDE.md): tool-specific entry points into this shared specification.
 
