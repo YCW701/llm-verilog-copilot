@@ -203,6 +203,7 @@ Executed on November 11, 2026, using the existing macOS / Python 3.14.6 / pytest
 | --- | --- |
 | Full suite with Icarus available | **287 passed** in 28.55 s |
 | Icarus removed from the test process's PATH | **239 passed, 48 explicitly skipped** in 3.89 s |
+| Full suite from a clean exported checkout, using the existing test interpreter | **287 passed** in 28.40 s |
 | Separate public CLI run on `correct.v` | Exit 0; checker confirmed **256/256 vectors with zero errors**; schema-3 artifacts and matching source hashes inspected |
 
 The commands used `PYTHONDONTWRITEBYTECODE=1`, `-p no:cacheprovider`, and `--basetemp` under an external temporary directory. The no-Icarus run set `PATH=/usr/bin:/bin`. Setup installation from PyPI, other Python/platform versions, and live model/benchmark functionality were not tested by this publication check.

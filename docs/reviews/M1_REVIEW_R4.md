@@ -64,6 +64,8 @@ PATH=/usr/bin:/bin PYTHONDONTWRITEBYTECODE=1 \
 
 The full suite exercises the six original M1 acceptance areas: explicit correct-fixture pass/evidence; mismatch/syntax classification; timeouts/bounded logs/process cleanup; missing-tool and false-pass defenses; collision/integrity/literal-path handling; and offline tests with explicit real-tool skips. Tests also rerun the CR/string/number-prefix regressions, compiler-signal distinction, capture-error preflight and declared model-origin gate. These facts support the controlled M1 scope only, not arbitrary RTL correctness or a security sandbox.
 
+**Clean-checkout layout verification:** exported the prepared local commit with `git archive HEAD` into `/private/tmp/capstone-publish-sdohncdt/clean-checkout`, containing no workspace caches, local run evidence or virtual environment. Ran the existing workspace `.venv/bin/python -m pytest -p no:cacheprovider --basetemp /private/tmp/capstone-publish-sdohncdt/clean-checkout-pytest` with that export as the working directory and bytecode disabled. **287 passed in 28.40 seconds, exit 0.** Pytest used the exported `src/` and fixture tree. This verifies checkout-relative layout with the existing interpreter/dependencies; it is not a fresh dependency-installation test.
+
 Initial dependency installation from PyPI, other operating systems/Python versions, live model calls, benchmark performance and synthesis metrics were **not tested**. No numerical efficacy claim is made.
 
 ## 4. Previous findings and limitations

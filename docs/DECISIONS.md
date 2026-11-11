@@ -16,14 +16,14 @@ For a consequential change, append/update an entry with ID, date, status, owner,
 
 | ID | Decision / requirement | Basis and consequence |
 | --- | --- | --- |
-| C01 | Project is “An LLM Copilot for Verilog Design,” Rutgers ECE Group 62, four students; advisor Professor Hang Liu. | Supplied by the team on November 8, 2026. Student names remain unassigned. |
-| C02 | Use the existing local `Capstone` root; preserve files; no nested project or GitHub creation/push. | Explicit task constraints. Initial inspection found an empty workspace. |
+| C01 | Project is “An LLM Copilot for Verilog Design,” Rutgers ECE Group 62, **three students**, academic year **2026–2027**; advisor Professor Hang Liu. | Current team information supplied November 11, 2026 supersedes the original four-student description from November 8. Student names remain unassigned. |
+| C02 | Use the existing local `Capstone` root; preserve files; no nested project. Publish only under explicit task authorization. | The November 11, 2026 request authorizes publication to `YCW701/llm-verilog-copilot`, main and m1-baseline. Earlier tasks prohibited publication; that restriction is superseded for this assigned task. |
 | C03 | Natural language → RTL → compile/simulate → diagnostics → bounded LLM repair. | Required scope. A compile-only demonstration is insufficient. |
 | C04 | Modular Python, interchangeable runtime LLM providers; Icarus or Verilator simulation. | Required scope. Do not assume keys, GPUs, or paid services. |
 | C05 | Evaluate on VerilogEval or RTLLM; compare one-shot and repair; report pass@1/pass@k and synthesis area/timing. | Required scope. One selected benchmark is enough; FPGA is optional. |
 | C06 | Codex initially plans/reviews/tests; Claude Code initially implements. Either may change role when explicitly assigned. | Supplied collaboration rule. One active editor per file, small reviewable milestones. |
 | C07 | Trusted benchmark testbenches/checkers cannot be changed to force passes; tests must be executed before claiming they passed. | Supplied integrity rules; applies to both agents. |
-| C08 | Current task creates planning/instruction documents only. | Explicit assignment. No full RTL agent, dependencies, benchmark download, or live model call in M0. |
+| C08 | The original M0 task created planning/instruction documents only. | Historical scope: no full RTL agent, dependencies, benchmark download, or live model call was authorized in M0. Later work follows its explicit milestone/task assignment. |
 | C09 | Controller, providers, tools, benchmark adapters, evaluation, synthesis, and artifact storage have distinct contracts. | Architect's baseline adopted in this documentation task, derived from modularity/provider interchangeability. Keeps SDK/tool details out of core policy. Concrete paths/signatures remain adjustable. |
 | C10 | Repair lineage is separate from independent sampling; report repair success separately from ordinary pass@k. | Architect's evaluation baseline; dependent attempts cannot be counted as independent generations. See PROJECT_SPEC section 4. |
 | C11 | Use explicit verdicts, separate infrastructure/model failures, and preserve raw evidence with provenance. | Architect's correctness/reproducibility baseline. Prevents false passes and misleading aggregate results. |
