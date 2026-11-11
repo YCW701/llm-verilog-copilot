@@ -8,7 +8,9 @@ Baseline date: November 8, 2026. This record separates supplied requirements and
 > - Technical approval is **not** team adoption. The M1 implementation choices in section 6 remain **proposed** until the team records a decision; see the summary at the start of section 6.
 > - No LLM generation, benchmark run, or experiment has been performed. M2 has not started.
 
-> **Publication update (November 11, 2026):** the team now reports **three students**, academic year **2026–2027**, and explicitly authorizes publishing the preserved M1 implementation to `https://github.com/YCW701/llm-verilog-copilot` on `main`, followed by `m1-baseline` after verifying the branch push. Existing local commit `7b4fbbe` and the remote starter commit `097c7f1` are retained in the integrated history. This updates C01/C02's original staffing/publication constraints; it does not adopt the still-proposed M1-D1–D6 choices or authorize M2 implementation. Historical reviews and the earlier four-role M2 planning document remain unchanged; current proposed staffing is in TEAM_ROLES.
+> **Historical publication update (November 11, 2026; staffing superseded by the subsequent update below):** the team now reports **three students**, academic year **2026–2027**, and explicitly authorizes publishing the preserved M1 implementation to `https://github.com/YCW701/llm-verilog-copilot` on `main`, followed by `m1-baseline` after verifying the branch push. Existing local commit `7b4fbbe` and the remote starter commit `097c7f1` are retained in the integrated history. This updates C01/C02's original staffing/publication constraints; it does not adopt the still-proposed M1-D1–D6 choices or authorize M2 implementation. Historical reviews and the earlier four-role M2 planning document remain unchanged; current proposed staffing is in TEAM_ROLES.
+
+> **Current staffing and planning update (November 11, 2026):** the team subsequently corrected its size to **four undergraduate ECE students**. This supersedes the three-student staffing assumption above, not the historical publication record. C01 reflects the current team; the four roles remain proposals without named assignments. The team supplied the four academic checkpoints and recurring results-table instruction from Professor Hang Liu's presentation; their wording and M0–M7 mapping are in ROADMAP. The current task authorizes documentation-only changes, a normal commit/push to `main`, preservation of `m1-baseline`, and no M2 implementation. M1-D1–D6 remain proposed.
 
 For a consequential change, append/update an entry with ID, date, status, owner, context, alternatives, decision, rationale, consequences, and evidence. Preserve superseded decisions with a link to their replacement; do not silently rewrite history. Promote a proposal only after an explicit team decision or an authorized implementation choice with its rationale recorded.
 
@@ -16,8 +18,8 @@ For a consequential change, append/update an entry with ID, date, status, owner,
 
 | ID | Decision / requirement | Basis and consequence |
 | --- | --- | --- |
-| C01 | Project is “An LLM Copilot for Verilog Design,” Rutgers ECE Group 62, **three students**, academic year **2026–2027**; advisor Professor Hang Liu. | Current team information supplied November 11, 2026 supersedes the original four-student description from November 8. Student names remain unassigned. |
-| C02 | Use the existing local `Capstone` root; preserve files; no nested project. Publish only under explicit task authorization. | The November 11, 2026 request authorizes publication to `YCW701/llm-verilog-copilot`, main and m1-baseline. Earlier tasks prohibited publication; that restriction is superseded for this assigned task. |
+| C01 | Project is “An LLM Copilot for Verilog Design,” Rutgers ECE Group 62, **four undergraduate students**, academic year **2026–2027**; advisor Professor Hang Liu. | The subsequent November 11, 2026 user correction supersedes the three-student publication assumption recorded above. Named role assignments remain unconfirmed. Historical reports and completed milestone records retain their original wording. |
+| C02 | Use the existing local `Capstone` root; preserve files; no nested project. Publish only under explicit task authorization. | The November 11, 2026 request authorizes publication to `YCW701/llm-verilog-copilot`, main and m1-baseline. Earlier tasks prohibited publication; explicit task authorization supersedes that restriction within scope. The subsequent documentation task authorizes only a documentation commit/push to main; preserve the existing `m1-baseline` tag and history. |
 | C03 | Natural language → RTL → compile/simulate → diagnostics → bounded LLM repair. | Required scope. A compile-only demonstration is insufficient. |
 | C04 | Modular Python, interchangeable runtime LLM providers; Icarus or Verilator simulation. | Required scope. Do not assume keys, GPUs, or paid services. |
 | C05 | Evaluate on VerilogEval or RTLLM; compare one-shot and repair; report pass@1/pass@k and synthesis area/timing. | Required scope. One selected benchmark is enough; FPGA is optional. |
@@ -28,6 +30,7 @@ For a consequential change, append/update an entry with ID, date, status, owner,
 | C10 | Repair lineage is separate from independent sampling; report repair success separately from ordinary pass@k. | Architect's evaluation baseline; dependent attempts cannot be counted as independent generations. See PROJECT_SPEC section 4. |
 | C11 | Use explicit verdicts, separate infrastructure/model failures, and preserve raw evidence with provenance. | Architect's correctness/reproducibility baseline. Prevents false passes and misleading aggregate results. |
 | C12 | Offline mock/replay operation is required for development; secrets are excluded from tool environments and artifacts. | Architect's baseline enabling progress without assumed credentials or hardware. |
+| C13 | Use the four supplied faculty checkpoints as the high-level academic timeline, retaining the internal M0–M7 definitions and the biweekly shared results-table instruction. | Team-supplied wording from *Four LLM Capstone Projects*, Slide 7; exact wording/mapping in [ROADMAP](ROADMAP.md#academic-checkpoints-and-milestone-mapping). No exact calendar dates, checkpoint completion, or advisor approval is inferred. M1/mock-only work does not satisfy the model-based baseline. |
 
 ## 2. Proposals awaiting implementation choice or team review
 
@@ -41,6 +44,7 @@ For a consequential change, append/update an entry with ID, date, status, owner,
 | P06 | Yosys mapping plus OpenSTA timing using an accessible Liberty library and explicit SDC constraints. | Open-source candidate flow; library/corner, tool versions, units, and constraints must be proven in an early spike. Alternative flow needs equivalent reproducible evidence. |
 | P07 | First passing candidate per trajectory for area/timing; paired one-shot/repair initial candidates; independent resampling control. | Limits selection bias and separates feedback benefit from extra budget. Final protocol is frozen before campaigns. |
 | P08 | M1 is an offline simulator harness with known-good/bad/hanging fixtures. | Establish trustworthy verification before LLM integration. Assignment and acceptance contract are in ROADMAP. |
+| P09 | Four engineering ownership areas: AI Agent & Backend Engineering; LLM Generation & Automated Repair; RTL Simulation & Verification; Benchmarking, Evaluation & Synthesis. | User-requested role proposal, detailed in TEAM_ROLES and reflected in M2 tasks. Names, availability and assignments are pending (Q01); no additional implementation is authorized. |
 
 ## 3. Unresolved questions and when to resolve them
 
@@ -48,16 +52,16 @@ Owners refer to proposed engineering roles; named students are not assigned yet.
 
 | ID | Question | Owner / decision gate |
 | --- | --- | --- |
-| Q01 | Which student takes each role, and what are actual availability and course/advisor milestones? | Team / before scheduling implementation. Estimates are not deadlines. |
+| Q01 | Which student takes each of the four proposed roles, what is actual availability, and how will work fit the four supplied academic checkpoints? | Team / before scheduling implementation. Estimates are not deadlines. |
 | Q02 | Which runtime providers/models are accessible, with what budget, quota, data policy, and supported sampling controls? | Role 2 + team / before live M2 calls. Development subscriptions do not establish runtime API access. |
-| Q03 | Which benchmark, revision, task format, supported subset, and license/use constraints apply? | Roles 3/4 / before M4; record provenance before import. |
+| Q03 | Which benchmark, revision, task format, supported subset, and license/use constraints apply? | Role 4 leads, Role 3 reviews simulator/checker compatibility / before M4; record provenance before import. |
 | Q04 | Which Python/simulator versions and local or isolated environment support the chosen benchmark? Does the installed Icarus v13 pass qualification, or should benchmark runs use v12? | Roles 1/3 / compatibility spike before M4. Do not downgrade globally without an explicit implementation decision. |
-| Q05 | What isolation mechanism can restrict generated-code execution on team machines without assuming Docker? | Roles 1/3 / before arbitrary generated RTL execution in M3. M1 stays on team-authored fixtures. |
+| Q05 | What isolation mechanism can restrict generated-code execution on team machines without assuming Docker? | Roles 1/3 / before the first model-generated RTL execution, in any milestone. M1 stays on team-authored fixtures; the gate remains closed. |
 | Q06 | What are the repair, request/token/time, retry, feedback-size, log, and artifact limits? Which failures are retryable? | Roles 1/2/3 / M2/M3; all campaign limits explicit in manifest. |
 | Q07 | What `n`/`k`, task split, repeats, sampling settings, outage policy, and cost-matched comparison fit resources? | Role 4 + team / freeze before M6. No arbitrary numerical pass target is assumed. |
 | Q08 | Which feedback is exposed, and are independent held-out checkers available? | Roles 2/3/4 / before M3 benchmark repair. Label feedback-assisted results even if held-out checks are unavailable. |
 | Q09 | Which library/corner, synthesis/STA versions, clock/I/O constraints, units, and timing-coverage rules are usable? | Role 4 / feasibility spike during M2; resolve before M5. Generic counts do not close the area/timing requirement. |
-| Q10 | What evidence and numerical goals does the team/advisor expect for final success? | Team / early scope discussion; record actual instructions only. |
+| Q10 | Beyond the supplied four checkpoints, what numerical goals or detailed demo/report expectations does the team/advisor specify, and where will the biweekly shared results table be maintained? | Team / early scope discussion; record actual instructions only. |
 | Q11 | Is FPGA work useful and feasible; which board/tool access exists? | Team / after core results; optional and currently unplanned. |
 
 ## 4. Observed local environment

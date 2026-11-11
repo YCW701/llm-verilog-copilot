@@ -1,6 +1,6 @@
 # Codex Project Instructions
 
-Project: **An LLM Copilot for Verilog Design** — Rutgers ECE Capstone, Group 62, three undergraduate ECE students, academic year 2026–2027. Faculty advisor: Professor Hang Liu. Planning baseline: November 8, 2026; team information updated November 11, 2026.
+Project: **An LLM Copilot for Verilog Design** — Rutgers ECE Capstone, Group 62, four undergraduate ECE students, academic year 2026–2027. Faculty advisor: Professor Hang Liu. Planning baseline: November 8, 2026; team information updated November 11, 2026.
 
 ## Initial role
 
@@ -20,7 +20,7 @@ Read these before changing project files:
 
 Both agent instruction files point to the same normative rules; neither defines a separate architecture. Keep this shared-contract section identical in `AGENTS.md` and `CLAUDE.md` when changing it. Explicit team assignments can change initial tool roles; do not silently reinterpret unresolved technical proposals as confirmed decisions.
 
-- Work in the existing `Capstone` root and preserve unrelated files. Do not create a nested project. Repository creation, remote configuration, commits, tags, and pushes require explicit task authorization. The November 11, 2026 M1 publication task authorizes integration with `YCW701/llm-verilog-copilot`, a push to `main`, and the `m1-baseline` tag; it does not authorize M2 implementation.
+- Work in the existing `Capstone` root and preserve unrelated files. Do not create a nested project. Repository creation, remote configuration, commits, tags, and pushes require explicit task authorization. The earlier November 11, 2026 M1 publication task authorized integration with `YCW701/llm-verilog-copilot`, publication of `main`, and creation of `m1-baseline`. The subsequent four-student documentation task authorizes a documentation-only commit/push to `main`; preserve the existing baseline tag and do not implement M2.
 - Claim exact files in the roadmap ledger before edits. Never allow two agents to modify the same file simultaneously, including documentation, configuration, contracts, and tests. Hand off ownership before reviewer fixes.
 - Use small milestones and the documented interfaces. Avoid unnecessary frameworks or infrastructure. Provider SDKs remain in provider adapters, tool execution in the runner, and benchmark details in benchmark adapters.
 - Never modify trusted benchmark testbenches/checkers or reference expectations to make incorrect RTL pass. Keep private verification/reference source out of model prompts.
@@ -47,4 +47,4 @@ Both agent instruction files point to the same normative rules; neither defines 
 
 Keep this workflow identical in `AGENTS.md` and `CLAUDE.md`. Treat the history index as navigation and current-status guidance; the dated reports retain the evidence and verdict at each review snapshot.
 
-M1 is implemented and technically approved within its documented trusted-fixture scope. Consult ROADMAP and the review history for current evidence and limitations. The existing M2 plan is proposed future work and must be reassigned for the current three-student team before implementation.
+M1 is implemented and technically approved within its documented trusted-fixture scope. Consult ROADMAP and the review history for current evidence and limitations. The M2 plan is proposed future work aligned with four engineering roles; named student assignments and dependent decisions remain pending before implementation. The four academic checkpoints are mapped to the unchanged M0–M7 milestones in ROADMAP. An offline mock demonstration is not evidence of an end-to-end off-the-shelf-model baseline.

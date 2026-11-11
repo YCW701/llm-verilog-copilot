@@ -4,6 +4,8 @@ Planning baseline: November 8, 2026. This describes the intended modular Python 
 
 Current status (M1 closeout, November 8, 2026): `cli.py`, `models.py`, `storage.py`, `rtl.py` (admission screen only), `tools/{process,icarus,simulation}.py` and `benchmarks/local_fixtures.py` implement the offline M1 harness. Codex technically approved it in [reviews/M1_REVIEW_R3.md](reviews/M1_REVIEW_R3.md) (APPROVED WITH NON-BLOCKING ISSUES) for the trusted-fixture scope. Its deviations from section 3 are recorded in DECISIONS section 6 (M1-D6); those entries remain **proposed** until the team confirms them. No provider, repair, benchmark or synthesis component exists yet.
 
+Current planning update (November 11, 2026): Group 62 has **four undergraduate ECE students**, academic year **2026–2027**, advised by Professor Hang Liu. [TEAM_ROLES.md](TEAM_ROLES.md) proposes four technical ownership areas, with named assignments pending. The published M1 baseline and test evidence are recorded in [R4](reviews/M1_REVIEW_R4.md). M2 remains unimplemented; its contracts are proposed in [M2_PLAN.md](milestones/M2_PLAN.md). The future system below supports the [four academic checkpoints](ROADMAP.md#academic-checkpoints-and-milestone-mapping); M1 alone does not satisfy the off-the-shelf-model baseline.
+
 ## 1. System flow
 
 ```mermaid
@@ -122,20 +124,20 @@ runs/<run_id>/
   summary.csv
 ```
 
-Keep raw and extracted responses distinct. Use unique IDs, atomic writes, and collision refusal; never overwrite earlier attempts. Every report row links to run/task/sample/attempt and underlying artifacts. A run manifest captures code revision when available (otherwise source hashes), dirty-workspace state, Python/OS/tool versions, benchmark revision and hashes, prompt versions, provider/model settings, budgets, and selection/exclusion policies. Resuming must validate matching inputs and cannot silently mix configurations. Add `runs/`, credentials, caches, and local environments to a future `.gitignore`; retain compact synthetic regression fixtures separately.
+Keep raw and extracted responses distinct. Use unique IDs, atomic writes, and collision refusal; never overwrite earlier attempts. Every report row links to run/task/sample/attempt and underlying artifacts. A run manifest captures code revision when available (otherwise source hashes), dirty-workspace state, Python/OS/tool versions, benchmark revision and hashes, prompt versions, provider/model settings, budgets, and selection/exclusion policies. Resuming must validate matching inputs and cannot silently mix configurations. The existing `.gitignore` excludes `runs/`, credential files, caches, and local environments; retain compact synthetic regression fixtures separately.
 
 ## 7. Proposed repository layout
 
-Only the root instruction files and `docs/` exist at this planning stage. Create the other paths as their milestone needs them; `src/` is a Python source layout, not a second project root.
+This is the proposed full-system layout from the planning baseline. M1 now supplies `pyproject.toml`, `README.md`, `.gitignore`, `.gitattributes`, the implemented package modules listed above, and `tests/`. Provider/controller/evaluation/synthesis paths below remain future work. Create additional paths only as their milestone needs them; `src/` is a Python source layout, not a second project root. See the root README for the current repository tree.
 
 ```text
 Capstone/
   AGENTS.md
   CLAUDE.md
   docs/{PROJECT_SPEC,ARCHITECTURE,ROADMAP,TEAM_ROLES,DECISIONS}.md
-  pyproject.toml                       # future: package metadata and tool settings
-  README.md                           # future: verified setup and usage
-  .gitignore                          # future
+  pyproject.toml                       # implemented M1 packaging
+  README.md                           # current setup, usage and status
+  .gitignore                          # current local-output/secret exclusions
   src/verilog_copilot/
     {cli,config,models,controller,prompts,rtl,storage}.py
     providers/{base,mock,...}.py
@@ -149,7 +151,7 @@ Capstone/
     fixtures/                         # team-authored RTL and trusted miniature checkers
   configs/                            # future: public example experiment configs
   benchmarks/                         # future: pinned external assets + provenance, immutable
-  runs/                               # future: generated local artifacts
+  runs/                               # generated local artifacts, ignored by Git
 ```
 
 ## 8. Technology proposals and evidence

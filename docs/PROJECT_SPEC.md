@@ -1,7 +1,7 @@
 # Project Specification
 
 Project: **An LLM Copilot for Verilog Design**  
-Rutgers ECE Capstone, Group 62 — three undergraduate ECE students, academic year 2026–2027<br>
+Rutgers ECE Capstone, Group 62 — four undergraduate ECE students, academic year 2026–2027<br>
 Faculty advisor: Professor Hang Liu  
 Planning baseline: November 8, 2026; current team information: November 11, 2026
 
@@ -9,9 +9,15 @@ Planning baseline: November 8, 2026; current team information: November 11, 2026
 
 Build a reproducible system that turns natural-language hardware specifications into Verilog RTL, evaluates the RTL with simulation, and uses diagnostic feedback to repair failed designs. Compare the benefit and cost of repair against independent one-shot generation.
 
-This is a planning baseline, not an implemented system or a statement of faculty requirements beyond the information supplied by the team. No advisor approval, course deadline, numerical performance target, API access, or GPU allocation is assumed.
+This specification describes the intended full system and records the implemented M1 subset below. Faculty requirements are limited to information supplied by the team. No advisor approval, exact calendar deadline, numerical performance target, API access, or GPU allocation is assumed.
 
-The workspace was empty at the original planning baseline. Current status on November 11, 2026: M1 implements the offline Icarus verification harness and is technically approved with non-blocking issues. The application source and fixtures are preserved from local baseline commit `7b4fbbe`; current verification evidence is in the review history. Natural-language generation, providers, repair, benchmarks, and synthesis remain future work. The existing M2 plan is documentation only and predates the current three-student staffing update.
+The workspace was empty at the original planning baseline. Current status on November 11, 2026: M1 implements the offline Icarus verification harness and is technically approved with non-blocking issues. The application source and fixtures are preserved from local baseline commit `7b4fbbe`; current verification evidence is in the review history. Natural-language generation, providers, repair, benchmarks, and synthesis remain future work. The existing M2 plan is documentation only; its proposed tasks now align with four engineering roles. Named student assignments remain unresolved. The published M1 snapshot is `m1-baseline` at commit `e2e1066cebad8c12516818f813c08a71897f5d8e`, preserving the original local baseline and remote starter history.
+
+### Academic checkpoints and the current baseline gap
+
+The team supplied Professor Hang Liu's *Four LLM Capstone Projects*, Slide 7, “Four shared checkpoints,” as the academic timeline: **FALL · WEEK 6: Baseline runs**, **FALL · FINALS: Core system**, **SPRING · WEEK 8: Full evaluation**, and **SPRING · EXPO: Demo and report**. Exact deliverables and the M0–M7 mapping are maintained in [ROADMAP.md](ROADMAP.md#academic-checkpoints-and-milestone-mapping). The recurring instruction is: **“Each team updates a shared results table every two weeks, starting at the baseline.”** No exact calendar deadlines or checkpoint completion are inferred.
+
+M1 verifies supplied team-authored RTL. It does not meet the first checkpoint's **“Data and an off-the-shelf model working end to end.”** Generation with an accessible off-the-shelf model, a declared data/task set, and integrated verification remain missing. M2 mock/replay work is preparatory integration evidence, not model performance. Executing model-generated RTL requires an adopted and validated isolation policy first; the existing gate remains closed. No populated shared results table is claimed.
 
 ## 2. Required capabilities
 
@@ -71,7 +77,7 @@ Report mapped cell area with the library's documented units and static timing de
 
 These rules apply equally to Codex, Claude Code, and human contributors.
 
-1. Work in the existing `Capstone` root. Preserve unrelated files and local changes; do not create a nested project. GitHub publication and Git metadata changes require explicit task authorization. On November 11, 2026 the team authorized integrating M1 into `YCW701/llm-verilog-copilot`, committing and pushing `main`, then creating/pushing `m1-baseline` after branch-push verification. This does not authorize later-milestone implementation.
+1. Work in the existing `Capstone` root. Preserve unrelated files and local changes; do not create a nested project. GitHub publication and Git metadata changes require explicit task authorization. On November 11, 2026 the team authorized integrating M1 into `YCW701/llm-verilog-copilot`, committing and pushing `main`, then creating/pushing `m1-baseline` after branch-push verification. The subsequent four-student planning task authorizes a documentation-only commit and push to `main`, preserving the existing `m1-baseline` tag and history. Neither publication assignment authorizes later-milestone implementation.
 2. Codex initially owns architecture, planning, review, and testing; Claude Code initially owns implementation. Either may take another role when explicitly assigned. These development tools are distinct from the application's runtime LLM providers.
 3. Before editing, claim a milestone and its exact file paths in the ownership table in [ROADMAP.md](ROADMAP.md). One active editor per file, including shared models, configuration, documentation, and tests. Use sequential handoffs for overlapping work. Do not launch additional editing agents without an explicit assignment and disjoint ownership.
 4. Use small milestones with concrete acceptance evidence. Change shared interfaces through the architecture and decision record; avoid speculative frameworks, dependencies, or infrastructure.
@@ -85,13 +91,13 @@ These rules apply equally to Codex, Claude Code, and human contributors.
 
 ## 6. Completion criteria for the capstone baseline
 
-The baseline is complete when a documented local CLI can generate, simulate, repair, and evaluate tasks using these contracts; a frozen campaign on one selected benchmark produces one-shot and repair results; pass@1/pass@k and synthesis area/timing are reported with provenance; and another teammate can replay stored candidates without model access. Numeric success targets and final presentation requirements remain team/advisor questions, not inferred requirements.
+The baseline is complete when a documented local CLI can generate, simulate, repair, and evaluate tasks using these contracts; a frozen campaign on one selected benchmark produces one-shot and repair results; pass@1/pass@k and synthesis area/timing are reported with provenance; and another teammate can replay stored candidates without model access. This engineering completion criterion is separate from the four academic checkpoints and their supplied deliverables in ROADMAP. Numerical success targets and any requirements beyond that wording remain team/advisor questions.
 
 ## 7. Reading guide and source notes
 
 - [ARCHITECTURE.md](ARCHITECTURE.md): components, data contracts, dependencies, and artifacts.
 - [ROADMAP.md](ROADMAP.md): staged implementation and the first Claude Code task.
-- [TEAM_ROLES.md](TEAM_ROLES.md): three proposed student ownership roles covering the engineering responsibilities and independent reviews.
+- [TEAM_ROLES.md](TEAM_ROLES.md): four proposed student ownership roles covering the engineering responsibilities and independent reviews.
 - [DECISIONS.md](DECISIONS.md): confirmed decisions, proposals, and open questions.
 - Root [AGENTS.md](../AGENTS.md) and [CLAUDE.md](../CLAUDE.md): tool-specific entry points into this shared specification.
 

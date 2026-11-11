@@ -6,11 +6,17 @@ Author: **Codex — Software Architect and Technical Reviewer**
 Implementation baseline: **`7b4fbbea1d5b6a22863bf12b9053e378ef89743d` (`7b4fbbe`) on `main`**  
 Status: **Proposed implementation plan; M2 is not implemented by this task.**
 
+Planning revision: **November 11, 2026** — current team: **four undergraduate ECE students**, academic year **2026–2027**, faculty advisor **Professor Hang Liu**. Role labels and responsibilities below align with the current [TEAM_ROLES](../TEAM_ROLES.md) proposal; named assignments remain pending. Technical requirements, interfaces, security restrictions and M2-AC1–M2-AC12 are unchanged. The original date/baseline and inspection/handoff statements remain the November 8 planning record, not claims about this revision. The published M1 tag `m1-baseline` resolves to `e2e1066cebad8c12516818f813c08a71897f5d8e`; [R4](../reviews/M1_REVIEW_R4.md) records later publication verification.
+
 ## 1. Basis and intended result
 
 This plan follows [ROADMAP](../ROADMAP.md), [PROJECT_SPEC](../PROJECT_SPEC.md), [ARCHITECTURE](../ARCHITECTURE.md), [DECISIONS](../DECISIONS.md), [TEAM_ROLES](../TEAM_ROLES.md), and the [M1 R3 technical review](../reviews/M1_REVIEW_R3.md). Root [AGENTS.md](../../AGENTS.md) and [CLAUDE.md](../../CLAUDE.md) govern ownership, handoffs, and independent review.
 
 Local inspection confirmed a clean `main` at the supplied baseline commit before this planning task. M1 is technically approved with non-blocking issues. Its implementation choices M1-D1 through M1-D6 are still marked **proposed** in DECISIONS; the successful commit does not itself record team adoption. Some planning/status prose still says the repository is not initialized. The inspected Git state and the team's supplied baseline establish that it is now committed; this plan does not rewrite historical review reports or unrelated status text.
+
+### Academic checkpoint relationship
+
+M2 supports **Checkpoint 1 — FALL · WEEK 6: Baseline runs** and may continue into **Checkpoint 2 — FALL · FINALS: Core system**; the full mapping is in [ROADMAP](../ROADMAP.md#academic-checkpoints-and-milestone-mapping). Its approved mock/replay path cannot alone satisfy **“Data and an off-the-shelf model working end to end.”** Actual model access, public task/data qualification and adopted/validated execution isolation are additional gates before an end-to-end model baseline can be claimed. Do not expand this offline implementation assignment or lift the execution gate to meet a timeline. No checkpoint is claimed complete and no calendar dates are inferred.
 
 M2 should deliver one small, reproducible path:
 
@@ -218,13 +224,15 @@ Estimate: **roughly 1–2 working weeks**, subject to actual part-time availabil
 
 | Slice | Primary student role / reviewer | Proposed deliverable and files | Gate / indicative effort |
 | --- | --- | --- | --- |
-| **M2-A — Contracts and decisions** | Role 1 platform / Role 2 | Freeze records/config/error mappings, public task shape, provenance and artifact contracts; additive `models.py`, new `config.py`; `tests/unit/test_generation_models.py`; adopted decisions and schema examples. | Resolve M2-P1–P5 below; 0.5–1 day. Complete shared-model edits before other implementations depend on them. |
-| **M2-B — Prompt and mock** | Role 2 LLM / Role 3 | `providers/__init__.py`, `providers/base.py`, `providers/mock.py`, `prompts.py`; `tests/unit/test_providers.py`, `tests/unit/test_prompts.py`. | M2-A and frozen fixture registry supplied by Role 3; 1–2 days. No simulator call in provider code. |
-| **M2-C — Public task, fixtures, RTL output checks** | Role 3 verification / Role 2 | `benchmarks/local_tasks.py`; new generation fixture/task/case files; additive `rtl.py` extraction/interface helpers; `tests/unit/test_rtl_generation.py`. | M2-A; 1–2 days. Preserve all existing RTL screen tests and original fixtures. |
-| **M2-D — Candidate artifacts and replayable evidence** | Role 4 evaluation / Role 1 | `generation_storage.py`; `tests/unit/test_generation_storage.py`; artifact/schema examples and lineage/provenance assertions. | M2-A; 1–2 days. No benchmark metric or synthesis implementation. |
-| **M2-E — Controller and CLI integration** | Role 1 platform / Role 3 | `controller.py`, additive `cli.py`; `tests/unit/test_controller.py`, `tests/integration/test_generate_cli.py`; README examples and status updates. | M2-B/C/D; 1–2 days. Single provider call and public M1 verification only. |
-| **M2-F — Replay adapter and substitution checks** | Role 2 LLM / Role 4 | `providers/replay.py`; append contract cases to owned `test_providers.py`; integration cases added by the current owner of `test_generate_cli.py` after handoff. | M2-D and frozen request fingerprint; 0.5–1 day. No ownership overlap with M2-E tests. |
+| **M2-A — Contracts and decisions** | Role 1 AI Agent & Backend Engineering / Role 2 | Freeze records/config/error mappings, public task shape, provenance and artifact contracts; additive `models.py`, new `config.py`; `tests/unit/test_generation_models.py`; adopted decisions and schema examples. | Resolve M2-P1–P5 below; 0.5–1 day. Complete shared-model edits before other implementations depend on them. |
+| **M2-B — Prompt and mock** | Role 2 LLM Generation & Automated Repair / Role 3 | `providers/__init__.py`, `providers/base.py`, `providers/mock.py`, `prompts.py`; `tests/unit/test_providers.py`, `tests/unit/test_prompts.py`. | M2-A and frozen fixture registry supplied by Role 3; 1–2 days. No simulator call in provider code. |
+| **M2-C — Public task, fixtures, RTL output checks** | Role 3 RTL Simulation & Verification / Role 2 | `benchmarks/local_tasks.py`; new generation fixture/task/case files; additive `rtl.py` extraction/interface helpers; `tests/unit/test_rtl_generation.py`. | M2-A; 1–2 days. Preserve all existing RTL screen tests and original fixtures. |
+| **M2-D — Candidate artifacts and replayable evidence** | Role 4 Benchmarking, Evaluation & Synthesis / Role 1 | `generation_storage.py`; `tests/unit/test_generation_storage.py`; artifact/schema examples and lineage/provenance assertions. | M2-A; 1–2 days. No benchmark metric or synthesis implementation. |
+| **M2-E — Controller and CLI integration** | Role 1 AI Agent & Backend Engineering / Role 3 | `controller.py`, additive `cli.py`; `tests/unit/test_controller.py`, `tests/integration/test_generate_cli.py`; README examples and status updates. | M2-B/C/D; 1–2 days. Single provider call and public M1 verification only. |
+| **M2-F — Replay adapter and substitution checks** | Role 2 LLM Generation & Automated Repair / Role 4 | `providers/replay.py`; append contract cases to owned `test_providers.py`; integration cases added by the current owner of `test_generate_cli.py` after handoff. | M2-D and frozen request fingerprint; 0.5–1 day. No ownership overlap with M2-E tests. |
 | **M2-G — Acceptance and independent review** | All roles; Codex independently reviews | Execute acceptance matrix; save implementation handoff and independent review under `docs/reviews/`; update review history and release ledger claims. | Prior slices; allow 1–2 days for evidence/review and bounded corrections. |
+
+Every slice includes implementation, behavior tests, subsystem documentation and a released-ownership handoff. Role 1 leads contract/integration documentation and controller tests; Role 2 maintains provider/prompt examples and adapter tests; Role 3 documents the interface/admission subset and supplies safety/real-Icarus evidence; Role 4 implements generation artifact storage against Role 1's agreed contract, documents metadata/replay examples and checks lineage/failure accounting. This delegated M2-D work does not transfer architectural ownership of shared storage contracts.
 
 Role 4 also owns the one-shot metadata/replay invariants and failure-accounting tests, so its engineering work is substantial without prematurely implementing M4 metrics. A synthesis/library feasibility note may be scoped separately as the roadmap suggests; it must not delay or expand the M2 provider deliverable.
 
@@ -290,5 +298,7 @@ The defaults above make the plan concrete; they are not recorded team decisions.
 Recommended first Claude Code assignment: **M2-A, then the smallest M2-B mock slice**, after the relevant decisions/ownership are recorded. Produce neutral records, public task/prompt/request examples, a deterministic mock adapter and offline contract tests; do not begin a repair loop or a live API integration. Review those contracts before parallel module work.
 
 M2 is complete only after M2-AC1 through M2-AC12 have executed evidence, both proposed offline adapters satisfy the agreed contract gate, the public one-shot fixture path works, the generated-RTL gate remains closed, and Codex saves an independent technical review. Remaining limitations and any team-approved scope change must be explicit. A canned mock demonstration is engineering integration evidence, not completion of capstone efficacy evaluation.
+
+### Original planning-task record (November 8, 2026)
 
 This task created the plan and its ownership entry only. It did not implement M2, modify M1 application code, install dependencies, execute new application tests, alter the existing decisions, make a Git commit, or push anything to GitHub.
